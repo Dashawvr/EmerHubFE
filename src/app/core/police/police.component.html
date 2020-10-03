@@ -1,0 +1,11 @@
+<form [formGroup]="policeForm">
+  <input type="text" formControlName="name" placeholder="Введіть ім'я ">
+  <input type="text" formControlName="surname">
+  <select *ngIf="policeStatuses" formControlName="status_id" required>
+    <option *ngFor="let policeStatus of policeStatuses" [value]="policeStatus.id">
+      {{policeStatus.status}}
+    </option>
+  </select>
+  <button (click)="create()">create police</button>
+</form>
+

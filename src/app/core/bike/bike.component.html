@@ -1,0 +1,13 @@
+<div *ngIf="bikeForm">
+  <form [formGroup]="bikeForm">
+    <input type="text" formControlName="model">
+    <input type="text" formControlName="color">
+    <select *ngIf="bikeOwners" formControlName="bikeOwner_id" required>
+      <option *ngFor="let bikeOwner of bikeOwners" [value]="bikeOwner.id">
+        {{bikeOwner.name}}{{bikeOwner.surname}}
+      </option>
+    </select>
+    <button (click)="create()">create Bike</button>
+  </form>
+</div>
+

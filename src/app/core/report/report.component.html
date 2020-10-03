@@ -1,0 +1,19 @@
+<div *ngIf="reportForm">
+  <form [formGroup]="reportForm">
+    <input type="text" formControlName="title">
+    <input type="text" formControlName="desc">
+    <select *ngIf="bikeOwners" formControlName="bikeOwner_id" required
+    (ngModelChange)="getBikesById($event)"
+    >
+      <option *ngFor="let bikeOwner of bikeOwners" [value]="bikeOwner.id">
+        {{bikeOwner.name}} {{bikeOwner.surname}}
+      </option>
+    </select>
+    <select *ngIf="bikes" formControlName="bike_id" required>
+      <option *ngFor="let bike of bikes" [value]="bike.id">
+        {{bike.model}} {{bike.color}}
+      </option>
+    </select>
+    <button (click)="create()">create Bike</button>
+  </form>
+</div>
